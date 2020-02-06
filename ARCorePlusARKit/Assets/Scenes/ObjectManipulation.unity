@@ -163,6 +163,7 @@ MonoBehaviour:
   collisionLayer:
     serializedVersion: 2
     m_Bits: 1024
+  mainCamera: {fileID: 2082807899}
 --- !u!1 &140866708
 GameObject:
   m_ObjectHideFlags: 0
