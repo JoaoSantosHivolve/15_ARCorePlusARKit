@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public enum ArTechnology
 {
@@ -16,13 +14,14 @@ public class ARController : MonoBehaviour
 
     public void Awake()
     {
-        if (Application.platform == RuntimePlatform.Android)
+        switch (Application.platform)
         {
-            technology = ArTechnology.ArCore;
-        }
-        else if (Application.platform == RuntimePlatform.IPhonePlayer)
-        {
-            technology = ArTechnology.ArKit;
+            case RuntimePlatform.Android:
+                technology = ArTechnology.ArCore;
+                break;
+            case RuntimePlatform.IPhonePlayer:
+                technology = ArTechnology.ArKit;
+                break;
         }
 
         arCore.SetActive(technology == ArTechnology.ArCore);

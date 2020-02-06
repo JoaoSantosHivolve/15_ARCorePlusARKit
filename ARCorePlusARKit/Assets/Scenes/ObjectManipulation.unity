@@ -155,7 +155,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8d14a82591ec4fcabb481f075ffeb53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballPrefab: {fileID: 1154719652421038, guid: e11b49885a57845e3b22a6355928ed72, type: 3}
+  andyPrefab: {fileID: 1287088417844050, guid: 5bb99d58072a840a39e52b18638ce96e, type: 3}
+  manipulatorPrefab: {fileID: 1122865395318488, guid: 24556cd4924884d9aaa3d80135c8021d,
+    type: 3}
   createHeight: 0.03
   maxRayDistance: 30
   collisionLayer:

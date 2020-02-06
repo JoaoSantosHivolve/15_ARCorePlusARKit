@@ -100,7 +100,7 @@ fc108ce7d98c40ac0907e8ca7f500c76 UnityEngine.UI.dll:UnityEngine.UI.Text
 0fd6822f6177297bd0eb4d83cc7a9030 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 abf1930d8126d0b2e00e9449129a0190 UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 64e54c0cbb0177c5ea26f340efb9ff85 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
-4ef6539ed83bb9d241cb3a4b7b42c415 Assembly-CSharp.dll:.BallMaker
+33be670ec6fed2b0302334d0490a6f0c Assembly-CSharp.dll:.BallMaker
 1cc9da185c150ad3ff63e08ac66e11a0 Assembly-CSharp.dll:.ARReferenceObjectsSetAsset
 c7db907b0e6d8ff95bbf7eb881c20648 Assembly-CSharp.dll:.UnityARCameraManager
 5c0880dfab6b0790ce0d0ccd3dac0c3f Assembly-CSharp.dll:.UnityARFaceMeshManager
