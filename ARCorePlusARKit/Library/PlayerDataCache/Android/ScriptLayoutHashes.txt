@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-C:/Users/Lucas/Documents/_UnityProjects/16_ARCorePlusARKit_TEST/Builds/ARCorePlusARKit.apk
+C:/Users/Lucas/Documents/_UnityProjects/15-ARCorePlusARKit/15_ARCorePlusARKit/ARCorePlusARKit/Builds/ARCorePlusARKit.apk
 SceneListBegin?
 Assets/Scenes/ObjectManipulation.unity
 SceneListEnd?
@@ -177,8 +177,10 @@ acd6e9b47d9eb18143f0e406b1e68787 Assembly-CSharp.dll:.ParticlePainter
 1ab92b1501bff4203df13dd5880207c1 Assembly-CSharp.dll:GoogleARCore.Examples.AugmentedFaces.ARCoreAugmentedFaceRig
 4fd8bf02e3089425d3502e26c44ba31a Unity.TextMeshPro.dll:TMPro.TextContainer
 309c0efd4456d6e902823ab02606508d Assembly-CSharp.dll:GoogleARCore.Examples.ObjectManipulation.ElevationManipulator
+d4fc26026b908cb271f19a5000301c16 Assembly-CSharp.dll:.ARController
 efee04fd7a8b900e85d693e88d5b5f35 Assembly-CSharp.dll:.ColorPicker
 c896001203784eaf50c0839b7a358365 Assembly-CSharp.dll:.UnityARKitPluginSettings
+d4fc26026b908cb271f19a5000301c16 Assembly-CSharp.dll:.ARController
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:GoogleARCore.Examples.ObjectManipulation.RotationManipulator
 7949738ace4f5cbe3f21484e8391d331 Assembly-CSharp.dll:.ObjectScanManager
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:GoogleARCore.Examples.ObjectManipulation.ObjectManipulationController
