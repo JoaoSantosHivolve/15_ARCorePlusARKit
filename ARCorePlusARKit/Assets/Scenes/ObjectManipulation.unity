@@ -195,7 +195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arCore: {fileID: 265275863}
   arKit: {fileID: 722576962}
-  technology: 0
+  technology: 1
 --- !u!4 &140866710
 Transform:
   m_ObjectHideFlags: 0
