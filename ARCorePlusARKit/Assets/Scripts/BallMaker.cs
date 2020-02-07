@@ -18,12 +18,7 @@ public class BallMaker : Manipulator
 
 	protected override bool CanStartManipulationForGesture(TapGesture gesture)
     {
-        if (gesture.TargetObject == null)
-        {
-            return true;
-        }
-
-        return false;
+        return true;
     }
     protected override void OnEndManipulation(TapGesture gesture)
     {
