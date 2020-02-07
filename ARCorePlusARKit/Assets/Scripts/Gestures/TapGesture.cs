@@ -72,11 +72,15 @@ namespace GoogleARCore.Examples.ObjectManipulation
         protected internal override void OnStart()
         {
             RaycastHit hit;
+            Debug.Log("Tap gesture on Start detected");
+
             if (GestureTouchesUtility.RaycastFromCamera(StartPosition, out hit))
             {
                 var gameObject = hit.transform.gameObject;
                 if (gameObject != null)
                 {
+                    Debug.Log("Tap gesture object detected");
+
                     TargetObject = gameObject.GetComponentInParent<Manipulator>().gameObject;
                 }
             }
