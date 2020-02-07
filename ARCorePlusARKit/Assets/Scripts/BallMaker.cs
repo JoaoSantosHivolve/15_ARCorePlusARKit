@@ -41,7 +41,7 @@ public class BallMaker : Manipulator
         if (IsPointerOverUiObject(gesture))
             return;
 
-        var screenPosition = mainCamera.ScreenToViewportPoint(gesture.StartPosition);
+        var screenPosition = mainCamera.ScreenToViewportPoint(Input.GetTouch(0).position);
         ARPoint point = new ARPoint
         {
             x = screenPosition.x,
