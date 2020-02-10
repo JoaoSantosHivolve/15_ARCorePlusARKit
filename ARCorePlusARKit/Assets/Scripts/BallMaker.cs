@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using GoogleARCore;
+﻿using System.Collections.Generic;
 using GoogleARCore.Examples.ObjectManipulation;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.XR.iOS;
 
-public class BallMaker : Manipulator
+public class BallMaker : MonoBehaviour
 {
     public GameObject andyPrefab;
     public GameObject manipulatorPrefab;
@@ -16,57 +14,38 @@ public class BallMaker : Manipulator
 
     public Camera mainCamera;
 
-    protected override bool CanStartManipulationForGesture(TapGesture gesture)
+    void Update()
     {
-        if (gesture.TargetObject == null)
-        {
-            return true;
-        }
+		if (Input.touchCount > 0 )
+		{
+			var touch = Input.GetTouch(0);
+			if (touch.phase == TouchPhase.Began)
+			{
+				var screenPosition = Camera.main.ScreenToViewportPoint(touch.position);
+				ARPoint point = new ARPoint {
+					x = screenPosition.x,
+					y = screenPosition.y
+				};
 
-        return false;
-    }
+                if (IsPointerOverObject(touch.position))
+                    return;
 
-    protected override void OnEndManipulation(TapGesture gesture)
-    {
-        Debug.Log("Detected tap");
+                if (IsPointerOverUiObject(touch.position))
+                    return;
 
-        if (gesture.WasCancelled)
-        {
-            return;
-        }
+						
+				List<ARHitTestResult> hitResults = UnityARSessionNativeInterface.GetARSessionNativeInterface ().HitTest (point, 
+					ARHitTestResultType.ARHitTestResultTypeExistingPlaneUsingExtent);
+				if (hitResults.Count > 0) {
+					foreach (var hitResult in hitResults) {
+						Vector3 position = UnityARMatrixOps.GetPosition (hitResult.worldTransform);
+						CreateObject (new Vector3 (position.x, position.y + createHeight, position.z));
+						break;
+					}
+				}
 
-        // If gesture is targeting an existing object we are done.
-        if (gesture.TargetObject != null)
-        {
-            Debug.Log("Targeting existing object");
-            return;
-        }
-
-        if (IsPointerOverUiObject(gesture))
-            return;
-
-
-        var screenPosition = mainCamera.ScreenToViewportPoint(gesture.StartPosition);
-        ARPoint point = new ARPoint
-        {
-            x = screenPosition.x,
-            y = screenPosition.y
-        };
-
-        List<ARHitTestResult> hitResults = UnityARSessionNativeInterface.GetARSessionNativeInterface()
-            .HitTest(point,
-                ARHitTestResultType.ARHitTestResultTypeExistingPlaneUsingExtent);
-        if (hitResults.Count > 0)
-        {
-            foreach (var hitResult in hitResults)
-            {
-                Vector3 position = UnityARMatrixOps.GetPosition(hitResult.worldTransform);
-
-                CreateObject(position);
-
-                break;
-            }
-        }
+			}
+		}
     }
 
     private bool IsPointerOverObject(Vector2 position)
@@ -82,13 +61,13 @@ public class BallMaker : Manipulator
         return false;
     }
 
-    private static bool IsPointerOverUiObject(TapGesture gesture)
+    private static bool IsPointerOverUiObject(Vector2 touchPos)
     {
         // Referencing this code for GraphicRaycaster https://gist.github.com/stramit/ead7ca1f432f3c0f181f
         // the ray cast appears to require only eventData.position.
         var eventDataCurrentPosition = new PointerEventData(EventSystem.current)
         {
-            position = new Vector2(gesture.StartPosition.x, gesture.StartPosition.y)
+            position = touchPos
         };
 
         var results = new List<RaycastResult>();
